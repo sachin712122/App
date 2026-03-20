@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Student Attendance System</string>
+
+    <!-- Date & count labels -->
+    <string name="current_date_label">Date:</string>
+    <string name="student_count_format">Students: %d</string>
+    <string name="roll_number_format">Roll: %s</string>
+    <string name="attendance_percentage_format">%d%%</string>
+
+    <!-- Attendance actions -->
+    <string name="mark_all_present">Mark All Present</string>
+    <string name="save_attendance">Save Attendance</string>
+    <string name="all_marked_present">All students marked as Present</string>
+    <string name="attendance_saved">Attendance saved successfully</string>
+    <string name="attendance_save_error">Failed to save attendance</string>
+    <string name="no_students_to_save">No students found. Please add students first.</string>
+
+    <!-- Attendance status -->
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="late">Late</string>
+
+    <!-- Kiosk mode -->
+    <string name="enter_kiosk_mode">Enable Kiosk Mode</string>
+    <string name="exit_kiosk_mode">Exit Kiosk Mode</string>
+    <string name="enable_kiosk_mode">Enable Kiosk Mode</string>
+    <string name="disable_kiosk_mode">Disable Kiosk Mode</string>
+    <string name="kiosk_mode_enabled">Kiosk Mode enabled</string>
+    <string name="kiosk_mode_disabled">Kiosk Mode disabled</string>
+
+    <!-- Admin PIN -->
+    <string name="enter_admin_pin">Enter Admin PIN</string>
+    <string name="change_admin_pin">Change Admin PIN</string>
+    <string name="current_pin_hint">Current PIN</string>
+    <string name="new_pin_hint">New PIN (min 4 digits)</string>
+    <string name="confirm_pin_hint">Confirm New PIN</string>
+    <string name="wrong_pin">Incorrect PIN. Please try again.</string>
+    <string name="wrong_current_pin">Current PIN is incorrect.</string>
+    <string name="pin_too_short">PIN must be at least 4 digits.</string>
+    <string name="pins_do_not_match">PINs do not match.</string>
+    <string name="pin_changed">Admin PIN changed successfully.</string>
+
+    <!-- Admin panel -->
+    <string name="admin_panel">Admin Panel</string>
+    <string name="add_student">Add Student</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="student_name_hint">Full Name</string>
+    <string name="roll_number_hint">Roll Number</string>
+    <string name="class_name_hint">Class / Section</string>
+    <string name="save">Save</string>
+    <string name="student_added">Student added successfully</string>
+    <string name="student_updated">Student updated successfully</string>
+    <string name="student_deleted">Student removed</string>
+    <string name="view_reports">View Attendance Report</string>
+    <string name="change_pin">Change Admin PIN</string>
+
+    <!-- Validation -->
+    <string name="name_required">Name is required</string>
+    <string name="roll_number_required">Roll number is required</string>
+    <string name="class_name_required">Class / section is required</string>
+
+    <!-- Confirm delete -->
+    <string name="confirm_delete">Confirm Delete</string>
+    <string name="confirm_delete_student">Remove %s from the system?</string>
+    <string name="delete">Delete</string>
+
+    <!-- Report -->
+    <string name="attendance_report">Attendance Report</string>
+    <string name="total_label">Total</string>
+    <string name="present_label">P</string>
+    <string name="absent_label">A</string>
+    <string name="late_label">L</string>
+
+    <!-- Menu -->
+    <string name="action_admin">Admin</string>
+    <string name="action_kiosk">Kiosk</string>
+
+    <!-- General -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_data">No data available</string>
+</resources>

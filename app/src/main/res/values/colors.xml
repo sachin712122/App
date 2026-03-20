@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colours -->
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#003C8F</color>
+    <color name="primary_light">#5E92F3</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <color name="secondary">#00897B</color>
+    <color name="secondary_dark">#005B4F</color>
+    <color name="on_secondary">#FFFFFF</color>
+
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#212121</color>
+
+    <!-- Attendance status colours -->
+    <color name="present_color">#388E3C</color>
+    <color name="absent_color">#D32F2F</color>
+    <color name="late_color">#F57C00</color>
+    <color name="status_button_default">#E0E0E0</color>
+    <color name="status_text_on_colored">#FFFFFF</color>
+
+    <!-- Kiosk mode indicator -->
+    <color name="kiosk_active">#B71C1C</color>
+    <color name="kiosk_inactive">#43A047</color>
+
+    <!-- Text colours -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#BDBDBD</color>
+</resources>
