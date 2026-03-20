@@ -26,6 +26,10 @@ import java.util.Locale
  *
  * Displays the full student list with Present/Late/Absent buttons.
  * When kiosk mode is active the device is locked to this screen.
+ *
+ * Features:
+ *  - Real-time "Present: N" badge in the info bar.
+ *  - FAB to register a new student (requires admin PIN).
  */
 class MainActivity : AppCompatActivity() {
 
@@ -121,6 +125,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = AttendanceMarkingAdapter { studentId, status ->
             attendanceViewModel.markAttendance(studentId, status, today)
+            updatePresentCount()
         }
         binding.rvStudents.adapter = adapter
         binding.rvStudents.setHasFixedSize(true)
@@ -133,6 +138,7 @@ class MainActivity : AppCompatActivity() {
             students.forEach { student ->
                 attendanceViewModel.markAttendance(student.id, AttendanceStatus.PRESENT, today)
             }
+            updatePresentCount()
             Toast.makeText(this, R.string.all_marked_present, Toast.LENGTH_SHORT).show()
         }
 
@@ -144,6 +150,11 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             attendanceViewModel.saveAttendanceBatch(students, statusMap, today)
+        }
+
+        // FAB: Register a new student (requires admin PIN for security)
+        binding.fabRegisterStudent.setOnClickListener {
+            promptAdminPin(openAddStudentAfterAuth = true)
         }
     }
 
@@ -159,6 +170,7 @@ class MainActivity : AppCompatActivity() {
         attendanceViewModel.getAttendanceForDate(today).observe(this, Observer { records ->
             val map = records.associate { it.studentId to it.status }
             adapter.setInitialStatuses(map)
+            updatePresentCount()
         })
 
         attendanceViewModel.saveResult.observe(this, Observer { success ->
@@ -181,11 +193,17 @@ class MainActivity : AppCompatActivity() {
         binding.tvCurrentDate.text = displayFormat.format(Date())
     }
 
+    /** Refreshes the green "Present: N" badge in the info bar. */
+    private fun updatePresentCount() {
+        binding.tvPresentCount.text = getString(R.string.present_count_format, adapter.getPresentCount())
+    }
+
     // ─── Admin PIN dialog ─────────────────────────────────────────────────────────
 
     private fun promptAdminPin(
         enableKioskAfterAuth: Boolean = false,
-        exitKioskAfterAuth: Boolean = false
+        exitKioskAfterAuth: Boolean = false,
+        openAddStudentAfterAuth: Boolean = false
     ) {
         val dialogView = layoutInflater.inflate(R.layout.dialog_pin_entry, null)
         val pinInput = dialogView.findViewById<android.widget.EditText>(R.id.et_pin)
@@ -206,6 +224,9 @@ class MainActivity : AppCompatActivity() {
                             kioskManager.activateKioskMode(this)
                             invalidateOptionsMenu()
                             Toast.makeText(this, R.string.kiosk_mode_enabled, Toast.LENGTH_SHORT).show()
+                        }
+                        openAddStudentAfterAuth -> {
+                            startActivity(Intent(this, AddStudentActivity::class.java))
                         }
                         else -> {
                             startActivity(Intent(this, AdminActivity::class.java))
