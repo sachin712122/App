@@ -16,7 +16,12 @@ class Converters {
 
     @TypeConverter
     fun toAttendanceStatus(value: String): AttendanceStatus =
-        AttendanceStatus.valueOf(value)
+        try {
+            AttendanceStatus.valueOf(value)
+        } catch (e: IllegalArgumentException) {
+            android.util.Log.e("AppDatabase", "Unknown AttendanceStatus value: '$value', defaulting to ABSENT")
+            AttendanceStatus.ABSENT
+        }
 }
 
 /**

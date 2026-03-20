@@ -151,12 +151,14 @@ class MainActivity : AppCompatActivity() {
         studentViewModel.allStudents.observe(this, Observer { students ->
             adapter.submitList(students)
             binding.tvStudentCount.text = getString(R.string.student_count_format, students.size)
+        })
 
-            // Load existing attendance for today so buttons show correct state
-            attendanceViewModel.getAttendanceForDate(today).observe(this, Observer { records ->
-                val map = records.associate { it.studentId to it.status }
-                adapter.setInitialStatuses(map)
-            })
+        // Observe today's attendance records independently to avoid registering a new
+        // observer on every allStudents emission, which would accumulate observers and
+        // trigger multiple concurrent notifyDataSetChanged() calls crashing RecyclerView.
+        attendanceViewModel.getAttendanceForDate(today).observe(this, Observer { records ->
+            val map = records.associate { it.studentId to it.status }
+            adapter.setInitialStatuses(map)
         })
 
         attendanceViewModel.saveResult.observe(this, Observer { success ->
