@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_kiosk_toggle"
+        android:icon="@drawable/ic_kiosk_on"
+        android:title="@string/enter_kiosk_mode"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_admin"
+        android:title="@string/action_admin"
+        app:showAsAction="never" />
+
+</menu>
