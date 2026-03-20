@@ -24,6 +24,9 @@ class AttendanceMarkingAdapter(
 
     fun getStatusMap(): Map<Long, AttendanceStatus> = statusMap.toMap()
 
+    /** Returns the number of students currently marked as PRESENT. */
+    fun getPresentCount(): Int = statusMap.values.count { it == AttendanceStatus.PRESENT }
+
     /** Pre-fill statuses loaded from the database. */
     fun setInitialStatuses(map: Map<Long, AttendanceStatus>) {
         statusMap.clear()

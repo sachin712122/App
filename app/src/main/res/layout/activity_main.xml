@@ -29,7 +29,7 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Info bar: date + student count + kiosk indicator -->
+        <!-- Info bar: date + student count + present count -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,12 +47,28 @@
                 android:textStyle="bold"
                 tools:text="Monday, 20 March 2026" />
 
+            <!-- Total student count -->
             <TextView
                 android:id="@+id/tv_student_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:textColor="@color/on_primary"
                 tools:text="Students: 30" />
+
+            <!-- Present count badge -->
+            <TextView
+                android:id="@+id/tv_present_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/badge_present_bg"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/on_primary"
+                android:textStyle="bold"
+                tools:text="Present: 0" />
 
         </LinearLayout>
 
@@ -98,5 +114,17 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <!-- FAB: Register Student (always accessible, requires admin PIN) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_register_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/register_student"
+        android:src="@drawable/ic_person_add"
+        app:backgroundTint="@color/secondary"
+        app:tint="@color/on_secondary" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

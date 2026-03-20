@@ -5,8 +5,12 @@
     <!-- Date & count labels -->
     <string name="current_date_label">Date:</string>
     <string name="student_count_format">Students: %d</string>
+    <string name="present_count_format">Present: %d</string>
     <string name="roll_number_format">Roll: %s</string>
     <string name="attendance_percentage_format">%d%%</string>
+
+    <!-- Registration -->
+    <string name="register_student">Register Student</string>
 
     <!-- Attendance actions -->
     <string name="mark_all_present">Mark All Present</string>

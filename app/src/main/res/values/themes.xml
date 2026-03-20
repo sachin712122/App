@@ -5,6 +5,8 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/secondary</item>
         <item name="android:statusBarColor">@color/primary_dark</item>
+        <!-- Opt out of forced edge-to-edge on Android 15 (API 35+) -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
     </style>
 
     <!-- Theme without action bar (used as base for activities with custom toolbars) -->
