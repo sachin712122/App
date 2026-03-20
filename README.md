@@ -121,3 +121,5 @@ From the Admin panel you can:
 | `DISABLE_KEYGUARD` | Prevent lock screen in kiosk mode |
 | `WAKE_LOCK` | Keep screen on during attendance session |
 | `FOREGROUND_SERVICE` | (reserved for future background sync) |
+
+# App
